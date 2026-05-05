@@ -4,12 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Program Placeholder | Programming Languages Midterm</title>
+  <title>Air Force PFRA Score Calculator | Programming Languages Midterm</title>
 
   <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     rel="stylesheet"
+  />
+
+  <!-- PyScript CSS -->
+  <link
+    rel="stylesheet"
+    href="https://pyscript.net/releases/2024.1.1/core.css"
   />
 
   <!-- Custom CSS -->
@@ -33,62 +39,246 @@
         ← Back to Home
       </a>
 
-      <h1 class="display-6 fw-bold">Program X Placeholder</h1>
+      <h1 class="display-6 fw-bold">Air Force PFRA Score Calculator</h1>
 
       <p class="lead mt-3">
-        This page is a placeholder for one of the required front-end programs.
+        This program estimates a U.S. Air Force Physical Fitness Readiness Assessment score using
+        Python running in the browser through PyScript.
       </p>
+
+      <div class="mt-3">
+        <span class="badge text-bg-primary">Python / PyScript</span>
+        <span class="badge text-bg-secondary">Imperative</span>
+      </div>
     </div>
   </header>
 
   <!-- Main Content -->
   <main class="container my-5">
-    <section class="card shadow-sm mb-4">
+    <div class="row g-4">
+      <!-- Input Form -->
+      <section class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="h4 mb-3">Enter Assessment Data</h2>
+
+            <form id="pfa-form">
+              <!-- Gender -->
+              <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select id="gender" class="form-select" required>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+
+              <!-- Age Group -->
+              <div class="mb-3">
+                <label for="age-group" class="form-label">Age Group</label>
+                <select id="age-group" class="form-select" required>
+                  <option value="under_25">Under 25</option>
+                  <option value="25_29">25-29</option>
+                  <option value="30_34">30-34</option>
+                  <option value="35_39">35-39</option>
+                </select>
+              </div>
+
+              <!-- Push-ups -->
+              <div class="mb-3">
+                <label for="pushups" class="form-label">1-Minute Push-ups</label>
+                <input
+                  type="number"
+                  id="pushups"
+                  class="form-control"
+                  min="0"
+                  placeholder="Example: 55"
+                  required
+                />
+              </div>
+
+              <!-- Sit-ups -->
+              <div class="mb-3">
+                <label for="situps" class="form-label">1-Minute Sit-ups</label>
+                <input
+                  type="number"
+                  id="situps"
+                  class="form-control"
+                  min="0"
+                  placeholder="Example: 60"
+                  required
+                />
+              </div>
+
+              <!-- Run Time -->
+              <div class="mb-3">
+                <label for="run-time" class="form-label">2-Mile Run Time</label>
+                <input
+                  type="text"
+                  id="run-time"
+                  class="form-control"
+                  placeholder="MM:SS, example: 15:00"
+                  pattern="^[0-9]{1,2}:[0-9]{2}$"
+                  required
+                />
+
+                <div class="form-text">
+                  Enter the time in minutes and seconds.
+                </div>
+              </div>
+
+              <!-- Waist -->
+              <div class="mb-3">
+                <label for="waist" class="form-label">Waist Measurement</label>
+                <input
+                  type="number"
+                  id="waist"
+                  class="form-control"
+                  min="0"
+                  step="0.1"
+                  placeholder="Example: 31"
+                  required
+                />
+              </div>
+
+              <!-- Height -->
+              <div class="mb-3">
+                <label for="height" class="form-label">Height</label>
+                <input
+                  type="number"
+                  id="height"
+                  class="form-control"
+                  min="0"
+                  step="0.1"
+                  placeholder="Example: 63"
+                  required
+                />
+
+                <div class="form-text">
+                  Waist and height must use the same unit, such as inches.
+                </div>
+              </div>
+
+              <button type="button" id="calculate-button" class="btn btn-primary w-100">
+                Calculate Score
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="h4 mb-3">Estimated Results</h2>
+
+            <div id="result-placeholder" class="alert alert-secondary">
+              Enter assessment data and click Calculate Score.
+            </div>
+
+            <div id="results" class="d-none">
+              <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <div class="border rounded p-3 bg-light">
+                    <p class="text-muted mb-1">Push-ups</p>
+                    <p id="pushup-score" class="h5 mb-0">0.0 pts</p>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="border rounded p-3 bg-light">
+                    <p class="text-muted mb-1">Sit-ups</p>
+                    <p id="situp-score" class="h5 mb-0">0.0 pts</p>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="border rounded p-3 bg-light">
+                    <p class="text-muted mb-1">2-Mile Run</p>
+                    <p id="run-score" class="h5 mb-0">0.0 pts</p>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="border rounded p-3 bg-light">
+                    <p class="text-muted mb-1">WHtR</p>
+                    <p id="wht-score" class="h5 mb-0">0.0 pts</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border rounded p-4 mb-3">
+                <p class="text-muted mb-1">Total Score</p>
+                <p id="total-score" class="display-6 fw-bold mb-0">0.0</p>
+              </div>
+
+              <div id="category-alert" class="alert mb-3">
+                <strong id="score-category">Category</strong>
+              </div>
+
+              <div class="card bg-light">
+                <div class="card-body">
+                  <h3 class="h6">Additional Details</h3>
+
+                  <ul class="mb-0">
+                    <li>Gender: <span id="result-gender">N/A</span></li>
+                    <li>Age Group: <span id="result-age-group">N/A</span></li>
+                    <li>WHtR: <span id="result-wht-ratio">N/A</span></li>
+                    <li>WHtR Risk Category: <span id="result-wht-risk">N/A</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div id="warnings-area" class="mt-3"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Program Information -->
+    <section class="card shadow-sm mt-4">
       <div class="card-body">
         <h2 class="h4">Program Information</h2>
 
-        <ul class="list-group list-group-flush mt-3">
-          <li class="list-group-item">
-            <strong>Language:</strong> Language Placeholder
-          </li>
-          <li class="list-group-item">
-            <strong>Paradigm / Requirement:</strong> Requirement Placeholder
-          </li>
-          <li class="list-group-item">
-            <strong>Status:</strong> Planned
-          </li>
+        <p>
+          This program demonstrates the imperative programming paradigm by using
+          step-by-step Python logic to collect user input, look up component scores,
+          calculate a composite score, and display the result.
+        </p>
+
+        <ul class="mb-0">
+          <li><strong>Language:</strong> Python</li>
+          <li><strong>Browser Tool:</strong> PyScript</li>
+          <li><strong>Paradigm:</strong> Imperative</li>
+          <li><strong>Input:</strong> Gender, age group, push-ups, sit-ups, run time, waist, and height</li>
+          <li><strong>Output:</strong> Component scores, WHtR, total score, category, and warnings</li>
         </ul>
       </div>
     </section>
 
-    <section class="card shadow-sm mb-4">
-      <div class="card-body">
-        <h2 class="h4">Description</h2>
-
-        <p class="mb-0">
-          A short description of this program will be added here after the final
-          program idea is selected.
-        </p>
-      </div>
-    </section>
-
-    <section class="card shadow-sm mb-4">
-      <div class="card-body">
-        <h2 class="h4">Program Output Area</h2>
-
-        <div class="border rounded p-4 bg-light text-muted">
-          The interactive program will be placed here.
-        </div>
-      </div>
-    </section>
-
-    <section class="card shadow-sm">
+    <!-- Credits -->
+    <section class="card shadow-sm mt-4">
       <div class="card-body">
         <h2 class="h4">Credits / References</h2>
 
-        <p class="mb-0 text-muted">
-          References and credits will be added here once the implementation is complete.
-        </p>
+        <ul class="mb-0">
+        <li>
+            Python documentation was referenced for general syntax, functions, data structures, and input validation.
+        </li>
+        <li>
+            PyScript documentation was referenced for running Python in the browser and connecting Python code to the HTML page.
+        </li>
+        <li>
+            Bootstrap documentation was referenced for layout, cards, buttons, forms, and responsive design.
+        </li>
+        <li>
+            The USAF Physical Fitness Readiness Assessment (PFRA) scoring chart was referenced for component scoring values and score categories.
+        </li>
+        <li>
+            ChatGPT was used as a development assistant for planning, debugging, code review, and organization.
+        </li>
+        </ul>
       </div>
     </section>
   </main>
@@ -109,6 +299,19 @@
   <!-- Bootstrap JS -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <!-- PyScript -->
+  <script
+    type="module"
+    src="https://pyscript.net/releases/2024.1.1/core.js">
+  </script>
+
+  <!-- Python logic -->
+  <script 
+    type="py" 
+    src="./main.py" 
+    config="./pyscript.toml">
   </script>
 </body>
 </html>
