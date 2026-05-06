@@ -1,5 +1,5 @@
-from pyscript import when
-from js import document
+from pyscript import when # type: ignore
+from js import document # type: ignore
 
 from scoring_data import calculate_pfa_score
 
