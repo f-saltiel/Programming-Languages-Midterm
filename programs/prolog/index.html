@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Program Placeholder | Programming Languages Midterm</title>
+  <title>Movie Recommendation System | Programming Languages Midterm</title>
 
   <!-- Bootstrap CSS -->
   <link
@@ -33,62 +33,130 @@
         ← Back to Home
       </a>
 
-      <h1 class="display-6 fw-bold">Program X Placeholder</h1>
+      <h1 class="display-6 fw-bold">Movie Recommendation System</h1>
 
       <p class="lead mt-3">
-        This page is a placeholder for one of the required front-end programs.
+        Choose a genre, mood, and pace to receive movie recommendations. The system first looks for exact matches, then suggests close matches when an exact recommendation is not available.
       </p>
+
+      <div class="mt-3">
+        <span class="badge text-bg-primary">Prolog / Tau Prolog</span>
+        <span class="badge text-bg-secondary">Logical</span>
+      </div>
     </div>
   </header>
 
   <!-- Main Content -->
   <main class="container my-5">
+    <!-- Movie Preferences -->
     <section class="card shadow-sm mb-4">
       <div class="card-body">
-        <h2 class="h4">Program Information</h2>
+        <h2 class="h4">Choose Preferences</h2>
 
-        <ul class="list-group list-group-flush mt-3">
-          <li class="list-group-item">
-            <strong>Language:</strong> Language Placeholder
-          </li>
-          <li class="list-group-item">
-            <strong>Paradigm / Requirement:</strong> Requirement Placeholder
-          </li>
-          <li class="list-group-item">
-            <strong>Status:</strong> Planned
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card shadow-sm mb-4">
-      <div class="card-body">
-        <h2 class="h4">Description</h2>
-
-        <p class="mb-0">
-          A short description of this program will be added here after the final
-          program idea is selected.
+        <p class="text-muted mb-3">
+          Select a genre, mood, and pace. The program will query the Prolog knowledge base
+          and return exact or close movie recommendations.
         </p>
+
+        <form id="preferencesForm" class="row g-3">
+          <div class="col-md-4">
+            <label for="genre" class="form-label">Genre</label>
+            <select id="genre" class="form-select" required>
+              <option value="action">Action</option>
+              <option value="comedy">Comedy</option>
+              <option value="drama">Drama</option>
+              <option value="mystery">Mystery</option>
+              <option value="sci_fi">Sci-Fi</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="romance">Romance</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label for="mood" class="form-label">Mood</label>
+            <select id="mood" class="form-select" required>
+              <option value="uplifting">Uplifting</option>
+              <option value="chill">Chill</option>
+              <option value="intense">Intense</option>
+              <option value="thoughtful">Thoughtful</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label for="pace" class="form-label">Pace</label>
+            <select id="pace" class="form-select" required>
+              <option value="fast">Fast</option>
+              <option value="balanced">Balanced</option>
+              <option value="slow">Slow</option>
+            </select>
+          </div>
+
+          <div class="col-12 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+              Get Recommendations
+            </button>
+
+            <button type="button" id="clearResults" class="btn btn-outline-secondary">
+              Clear
+            </button>
+          </div>
+        </form>
       </div>
     </section>
 
+    <!-- Results -->
     <section class="card shadow-sm mb-4">
       <div class="card-body">
-        <h2 class="h4">Program Output Area</h2>
+        <h2 class="h4">Recommendations</h2>
 
-        <div class="border rounded p-4 bg-light text-muted">
-          The interactive program will be placed here.
+        <div id="results" class="border rounded p-3 bg-light">
+          <p class="text-muted mb-0">
+            Your recommendations will appear here.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="card shadow-sm">
+    <!-- Program Information -->
+    <section class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h2 class="h4">Program Information</h2>
+
+        <p>
+          This program demonstrates the logical programming paradigm by using Prolog
+          facts, rules, and queries to infer movie recommendations from selected user
+          preferences.
+        </p>
+
+        <ul class="mb-0">
+          <li><strong>Language:</strong> Prolog</li>
+          <li><strong>Browser Tool:</strong> Tau Prolog</li>
+          <li><strong>Paradigm:</strong> Logical</li>
+          <li><strong>Input:</strong> Genre, mood, and pace preferences</li>
+          <li><strong>Output:</strong> Exact or close movie recommendations</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Credits -->
+    <section class="card shadow-sm mt-4">
       <div class="card-body">
         <h2 class="h4">Credits / References</h2>
 
-        <p class="mb-0 text-muted">
-          References and credits will be added here once the implementation is complete.
-        </p>
+        <ul class="mb-0">
+          <li>
+            Tau Prolog documentation was referenced for running Prolog rules and queries in the browser.
+          </li>
+          <li>
+            Prolog documentation was referenced for facts, rules, predicates, and query structure.
+          </li>
+          <li>
+            Bootstrap documentation was referenced for layout, cards, buttons, forms, and responsive design.
+          </li>
+          <li>
+            ChatGPT was used as a development assistant for planning, debugging, code review, and organization.
+          </li>
+        </ul>
       </div>
     </section>
   </main>
@@ -107,8 +175,296 @@
   </footer>
 
   <!-- Bootstrap JS -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tau-prolog@0.3.4/modules/core.min.js"></script>
+
+  <script>
+  const knowledgeBase = `
+% ---------------------------------------------------------------------------
+% Action movies
+% ---------------------------------------------------------------------------
+
+movie(mad_max_fury_road, action, intense, fast, 'Mad Max: Fury Road').
+movie(john_wick, action, intense, fast, 'John Wick').
+movie(mission_impossible_fallout, action, intense, fast, 'Mission: Impossible - Fallout').
+movie(the_dark_knight, action, intense, balanced, 'The Dark Knight').
+movie(spider_man_into_the_spider_verse, action, uplifting, fast, 'Spider-Man: Into the Spider-Verse').
+movie(guardians_of_the_galaxy, action, uplifting, balanced, 'Guardians of the Galaxy').
+movie(baby_driver, action, intense, fast, 'Baby Driver').
+movie(top_gun_maverick, action, uplifting, fast, 'Top Gun: Maverick').
+movie(the_matrix, action, intense, fast, 'The Matrix').
+movie(logan, action, thoughtful, balanced, 'Logan').
+movie(oceans_eleven, action, chill, balanced, 'Ocean''s Eleven').
+movie(die_hard, action, intense, balanced, 'Die Hard').
+movie(kill_bill_volume_1, action, intense, fast, 'Kill Bill: Volume 1').
+movie(the_bourne_identity, action, intense, fast, 'The Bourne Identity').
+
+
+% ---------------------------------------------------------------------------
+% Comedy movies
+% ---------------------------------------------------------------------------
+
+movie(paddington_2, comedy, uplifting, balanced, 'Paddington 2').
+movie(groundhog_day, comedy, uplifting, balanced, 'Groundhog Day').
+movie(superbad, comedy, chill, fast, 'Superbad').
+movie(the_grand_budapest_hotel, comedy, chill, balanced, 'The Grand Budapest Hotel').
+movie(palm_springs, comedy, uplifting, fast, 'Palm Springs').
+movie(booksmart, comedy, uplifting, fast, 'Booksmart').
+movie(hot_fuzz, comedy, intense, fast, 'Hot Fuzz').
+movie(shaun_of_the_dead, comedy, intense, fast, 'Shaun of the Dead').
+movie(the_nice_guys, comedy, chill, fast, 'The Nice Guys').
+movie(school_of_rock, comedy, uplifting, balanced, 'School of Rock').
+movie(chef, comedy, uplifting, balanced, 'Chef').
+movie(the_big_sick, comedy, thoughtful, balanced, 'The Big Sick').
+movie(jojo_rabbit, comedy, thoughtful, balanced, 'Jojo Rabbit').
+movie(napoleon_dynamite, comedy, chill, slow, 'Napoleon Dynamite').
+
+
+% ---------------------------------------------------------------------------
+% Drama movies
+% ---------------------------------------------------------------------------
+
+movie(whiplash, drama, intense, fast, 'Whiplash').
+movie(the_social_network, drama, thoughtful, fast, 'The Social Network').
+movie(little_women, drama, uplifting, balanced, 'Little Women').
+movie(manchester_by_the_sea, drama, thoughtful, slow, 'Manchester by the Sea').
+movie(the_pursuit_of_happyness, drama, uplifting, balanced, 'The Pursuit of Happyness').
+movie(moonlight, drama, thoughtful, slow, 'Moonlight').
+movie(good_will_hunting, drama, uplifting, balanced, 'Good Will Hunting').
+movie(the_king_speech, drama, uplifting, balanced, 'The King''s Speech').
+movie(ford_v_ferrari, drama, intense, fast, 'Ford v Ferrari').
+movie(the_imitation_game, drama, thoughtful, balanced, 'The Imitation Game').
+movie(a_beautiful_mind, drama, thoughtful, slow, 'A Beautiful Mind').
+movie(creed, drama, uplifting, fast, 'Creed').
+movie(moneyball, drama, thoughtful, balanced, 'Moneyball').
+movie(dead_poets_society, drama, thoughtful, slow, 'Dead Poets Society').
+
+
+% ---------------------------------------------------------------------------
+% Mystery movies
+% ---------------------------------------------------------------------------
+
+movie(knives_out, mystery, chill, balanced, 'Knives Out').
+movie(se7en, mystery, intense, slow, 'Se7en').
+movie(shutter_island, mystery, intense, balanced, 'Shutter Island').
+movie(gone_girl, mystery, thoughtful, slow, 'Gone Girl').
+movie(zodiac, mystery, thoughtful, slow, 'Zodiac').
+movie(prisoners, mystery, intense, slow, 'Prisoners').
+movie(clue, mystery, chill, fast, 'Clue').
+movie(the_game, mystery, intense, balanced, 'The Game').
+movie(the_girl_with_the_dragon_tattoo, mystery, intense, slow, 'The Girl with the Dragon Tattoo').
+movie(memories_of_murder, mystery, thoughtful, slow, 'Memories of Murder').
+movie(the_prestige, mystery, thoughtful, balanced, 'The Prestige').
+movie(rear_window, mystery, chill, slow, 'Rear Window').
+movie(murder_on_the_orient_express, mystery, chill, balanced, 'Murder on the Orient Express').
+movie(get_out, mystery, intense, fast, 'Get Out').
+
+
+% ---------------------------------------------------------------------------
+% Sci-Fi movies
+% ---------------------------------------------------------------------------
+
+movie(inception, sci_fi, intense, fast, 'Inception').
+movie(arrival, sci_fi, thoughtful, slow, 'Arrival').
+movie(interstellar, sci_fi, thoughtful, slow, 'Interstellar').
+movie(the_martian, sci_fi, uplifting, balanced, 'The Martian').
+movie(edge_of_tomorrow, sci_fi, intense, fast, 'Edge of Tomorrow').
+movie(ex_machina, sci_fi, thoughtful, slow, 'Ex Machina').
+movie(blade_runner_2049, sci_fi, thoughtful, slow, 'Blade Runner 2049').
+movie(wall_e, sci_fi, uplifting, balanced, 'WALL-E').
+movie(minority_report, sci_fi, intense, fast, 'Minority Report').
+movie(district_9, sci_fi, intense, fast, 'District 9').
+movie(source_code, sci_fi, intense, fast, 'Source Code').
+movie(her, sci_fi, thoughtful, slow, 'Her').
+movie(looper, sci_fi, intense, balanced, 'Looper').
+movie(everything_everywhere_all_at_once, sci_fi, uplifting, fast, 'Everything Everywhere All at Once').
+
+
+% ---------------------------------------------------------------------------
+% Fantasy movies
+% ---------------------------------------------------------------------------
+
+movie(the_lord_of_the_rings_fellowship, fantasy, thoughtful, balanced, 'The Lord of the Rings: The Fellowship of the Ring').
+movie(spirited_away, fantasy, thoughtful, balanced, 'Spirited Away').
+movie(harry_potter_and_the_prisoner_of_azkaban, fantasy, chill, balanced, 'Harry Potter and the Prisoner of Azkaban').
+movie(pans_labyrinth, fantasy, intense, slow, 'Pan''s Labyrinth').
+movie(the_princess_bride, fantasy, uplifting, balanced, 'The Princess Bride').
+movie(stardust, fantasy, uplifting, balanced, 'Stardust').
+movie(howls_moving_castle, fantasy, thoughtful, balanced, 'Howl''s Moving Castle').
+movie(the_green_knight, fantasy, thoughtful, slow, 'The Green Knight').
+movie(big_fish, fantasy, uplifting, slow, 'Big Fish').
+movie(coraline, fantasy, intense, balanced, 'Coraline').
+movie(labyrinth, fantasy, chill, balanced, 'Labyrinth').
+movie(willow, fantasy, uplifting, balanced, 'Willow').
+
+
+% ---------------------------------------------------------------------------
+% Romance movies
+% ---------------------------------------------------------------------------
+
+movie(crazy_rich_asians, romance, uplifting, balanced, 'Crazy Rich Asians').
+movie(about_time, romance, uplifting, balanced, 'About Time').
+movie(before_sunrise, romance, chill, slow, 'Before Sunrise').
+movie(la_la_land, romance, thoughtful, balanced, 'La La Land').
+movie(ten_things_i_hate_about_you, romance, uplifting, fast, '10 Things I Hate About You').
+movie(when_harry_met_sally, romance, chill, balanced, 'When Harry Met Sally').
+movie(the_notebook, romance, thoughtful, slow, 'The Notebook').
+movie(pride_and_prejudice, romance, thoughtful, slow, 'Pride and Prejudice').
+movie(eternal_sunshine_of_the_spotless_mind, romance, thoughtful, balanced, 'Eternal Sunshine of the Spotless Mind').
+movie(five_hundred_days_of_summer, romance, thoughtful, balanced, '500 Days of Summer').
+movie(plus_one, romance, chill, balanced, 'Plus One').
+movie(set_it_up, romance, uplifting, fast, 'Set It Up').
+
+recommend_exact(Genre, Mood, Pace, Title) :-
+  movie(_, Genre, Mood, Pace, Title).
+
+recommend_relaxed(Genre, Mood, _Pace, Title) :-
+  movie(_, Genre, Mood, _, Title).
+
+recommend_relaxed(Genre, _Mood, Pace, Title) :-
+  movie(_, Genre, _, Pace, Title).
+`;
+
+  const form = document.getElementById("preferencesForm");
+  const clearButton = document.getElementById("clearResults");
+  const results = document.getElementById("results");
+
+  function getTitleFromAnswer(answer) {
+    if (!answer || !answer.links || !answer.links.Title) {
+      return null;
+    }
+
+    const titleTerm = answer.links.Title;
+
+    // Tau Prolog atoms usually store the atom name in .id.
+    if (typeof titleTerm.id === "string") {
+      return titleTerm.id;
+    }
+
+    // Some terms may store text in .value.
+    if (typeof titleTerm.value === "string") {
+      return titleTerm.value;
+    }
+
+    // Fallback just in case Tau Prolog formats the term differently.
+    if (typeof titleTerm.toString === "function") {
+      return titleTerm.toString();
+    }
+
+    return null;
+  }
+
+  function collectAnswers(session, callback) {
+    const matches = [];
+
+    session.answers(answer => {
+      if (answer === false) {
+        callback(matches);
+        return;
+      }
+
+      try {
+        const title = getTitleFromAnswer(answer);
+
+        if (title && !matches.includes(title)) {
+          matches.push(title);
+        }
+      } catch (error) {
+        console.error("Answer parsing error:", error);
+        console.error("Raw answer:", answer);
+      }
+    });
+  }
+
+  function runPrologQuery(query, onSuccess, onError) {
+    const session = pl.create(1000);
+
+    session.consult(knowledgeBase, {
+      success: () => {
+        session.query(query, {
+          success: () => {
+            collectAnswers(session, onSuccess);
+          },
+          error: onError
+        });
+      },
+      error: onError
+    });
+  }
+
+  function renderMatches(matches, relaxedMode) {
+    if (matches.length === 0) {
+      results.innerHTML = `
+        <div class="alert alert-warning mb-0" role="alert">
+          No recommendation found for this combination yet. Try a different genre, mood, or pace.
+        </div>
+      `;
+      return;
+    }
+
+    const note = relaxedMode
+      ? '<p class="small text-muted mb-2">Showing close matches based on your genre plus mood or pace.</p>'
+      : '<p class="small text-muted mb-2">Showing exact matches.</p>';
+
+    const items = matches
+      .map(title => `<li class="list-group-item">${title}</li>`)
+      .join("");
+
+    results.innerHTML = `
+      ${note}
+      <ul class="list-group">${items}</ul>
+    `;
+  }
+
+  function showQueryError(error) {
+    console.error("Prolog query error:", error);
+
+    results.innerHTML = `
+      <div class="alert alert-danger mb-0" role="alert">
+        Unable to run the recommendation query. Check the browser console for details.
+      </div>
+    `;
+  }
+
+  function runRecommendations(genre, mood, pace) {
+    const exactQuery = `recommend_exact(${genre}, ${mood}, ${pace}, Title).`;
+    const relaxedQuery = `recommend_relaxed(${genre}, ${mood}, ${pace}, Title).`;
+
+    runPrologQuery(
+      exactQuery,
+      exactMatches => {
+        if (exactMatches.length > 0) {
+          renderMatches(exactMatches, false);
+          return;
+        }
+
+        runPrologQuery(
+          relaxedQuery,
+          relaxedMatches => {
+            renderMatches(relaxedMatches, true);
+          },
+          showQueryError
+        );
+      },
+      showQueryError
+    );
+  }
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const genre = document.getElementById("genre").value;
+    const mood = document.getElementById("mood").value;
+    const pace = document.getElementById("pace").value;
+
+    runRecommendations(genre, mood, pace);
+  });
+
+  clearButton.addEventListener("click", () => {
+    results.innerHTML = `
+      <p class="text-muted mb-0">Your recommendations will appear here.</p>
+    `;
+  });
   </script>
 </body>
 </html>
