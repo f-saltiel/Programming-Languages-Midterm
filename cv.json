@@ -1,0 +1,453 @@
+{
+  "personal": {
+    "name": "Francisco Saltiel",
+    "title": "Computer Science Student",
+    "email": "francisco.saltiel@upr.edu",
+    "phone": "Phone number available upon request",
+    "location": "Puerto Rico",
+    "summary": "Computer Science student with experience in software development, computer graphics, database design, undergraduate research, and leadership through Air Force ROTC. Interested in practical software systems, simulation, graphics, and interactive applications."
+  },
+  "categories": [
+    {
+      "id": "education",
+      "title": "Education",
+      "entries": [
+        {
+          "id": "education-1",
+          "title": "Bachelor of Science in Computer Science",
+          "organization": "University of Puerto Rico at Mayagüez",
+          "location": "Mayagüez, PR",
+          "date": "Expected December 2026",
+          "description": "Undergraduate student focused on computer science, software development, and applied computing projects.",
+          "bullets": [
+            "Completed advanced coursework in algorithms, operating systems, computer graphics, databases, software engineering, and human-computer interaction.",
+            "Developed academic projects involving graphics programming, database normalization, web applications, and algorithm visualization."
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "military-leadership",
+      "title": "Military Leadership Experience",
+      "entries": [
+        {
+          "id": "military-leadership-1",
+          "title": "Cadet Development Supervisor",
+          "organization": "Air Force ROTC",
+          "location": "Puerto Rico",
+          "date": "Spring 2026",
+          "description": "Supervised cadet development and training throughout an academic semester.",
+          "bullets": [
+            "Directly supervised the development of more than 20 cadets over the course of a full semester.",
+            "Provided guidance, feedback, and accountability to support cadet performance and leadership growth.",
+            "Coordinated expectations, preparation, and communication for recurring training activities."
+          ],
+          "active": true
+        },
+        {
+          "id": "military-leadership-2",
+          "title": "Deputy Commander, Cadet Training Event",
+          "organization": "Air Force ROTC",
+          "location": "Puerto Rico",
+          "date": "2026",
+          "description": "Served as the second-highest cadet leader for a large training event.",
+          "bullets": [
+            "Helped lead a cadet training event involving approximately 90 cadets.",
+            "Supported event planning, command structure, and real-time decision-making.",
+            "Coordinated with other cadet leaders to support safe and organized event execution."
+          ],
+          "active": true
+        },
+        {
+          "id": "military-leadership-3",
+          "title": "Logistics Readiness Officer",
+          "organization": "Air Force ROTC",
+          "location": "Puerto Rico",
+          "date": "2025",
+          "description": "Oversaw material logistics for a large cadet organization.",
+          "bullets": [
+            "Managed material logistics for a detachment of more than 100 cadets throughout an academic semester.",
+            "Tracked, organized, and coordinated equipment and resources needed for training activities.",
+            "Supported operational readiness by maintaining accountability of assigned materials."
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "research-experience",
+      "title": "Research Experience",
+      "entries": [
+        {
+          "id": "research-1",
+          "title": "Undergraduate Research Student",
+          "organization": "DCT-Based Digital Image Watermarking Reproduction and Analysis",
+          "location": "University of Puerto Rico at Mayagüez",
+          "date": "Spring 2026",
+          "description": "Reproduced and analyzed a digital image watermarking method based on discrete cosine transform techniques.",
+          "bullets": [
+            "Implemented a DCT-based watermarking system using Python, NumPy, OpenCV, and Matplotlib.",
+            "Evaluated watermark robustness using metrics such as PSNR, BER, and normalized correlation.",
+            "Tested performance under image attacks such as compression, noise, cropping, and rotation."
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "academic-projects",
+      "title": "Academic Projects",
+      "entries": [
+        {
+          "id": "academic-project-1",
+          "title": "CPU-Based Rasterizer with SSAO",
+          "organization": "Computer Graphics Project",
+          "location": "University of Puerto Rico at Mayagüez",
+          "date": "2025",
+          "description": "Built a CPU-based rasterizer from scratch and implemented screen space ambient occlusion.",
+          "bullets": [
+            "Developed a rasterization pipeline in C++ without relying on a GPU rendering framework.",
+            "Implemented SSAO to improve depth and lighting perception in a test scene.",
+            "Created a custom scene to demonstrate and compare the visual effect of SSAO."
+          ],
+          "active": true
+        },
+        {
+          "id": "academic-project-2",
+          "title": "Pathfinding Algorithm Visualizer",
+          "organization": "Algorithms / Visualization Project",
+          "location": "University of Puerto Rico at Mayagüez",
+          "date": "2025",
+          "description": "Built an interactive visualizer comparing A*, Dijkstra's algorithm, and breadth-first search.",
+          "bullets": [
+            "Created an interactive grid interface where users could draw mazes and place pathfinding points.",
+            "Displayed side-by-side comparisons of A*, Dijkstra's algorithm, and BFS.",
+            "Implemented weighted edges to support more detailed algorithm comparison and analysis."
+          ],
+          "active": true
+        },
+        {
+          "id": "academic-project-3",
+          "title": "Programming Languages Midterm Website",
+          "organization": "Front-End Programming Project",
+          "location": "University of Puerto Rico at Mayagüez",
+          "date": "2026",
+          "description": "Built a multi-program website using different programming languages and paradigms.",
+          "bullets": [
+            "Implemented browser-based programs using JavaScript, Python/PyScript, Prolog/Tau Prolog, Elm, and TypeScript.",
+            "Designed a consistent Bootstrap interface across multiple program pages.",
+            "Practiced front-end execution of imperative, functional, logical, and object-oriented programs."
+          ],
+          "active": true
+        },
+        {
+          "id": "academic-project-4",
+          "title": "Project HERMES: Ares-Pathfinder Simulation",
+          "organization": "Software Engineering Project",
+          "location": "University of Puerto Rico at Mayagüez",
+          "date": "2026",
+          "description": "Contributed to the planning and design of a terminal-based mission simulation prototype.",
+          "bullets": [
+            "Defined role-based user tasks, system requirements, and prototype scope.",
+            "Supported incremental development planning and project documentation.",
+            "Focused on simulation design, requirements organization, and user interaction flow."
+          ],
+          "active": true
+        },
+        {
+          "id": "academic-project-5",
+          "title": "Sales Database Normalization Project",
+          "organization": "Database Systems Project",
+          "location": "University of Puerto Rico at Mayagüez",
+          "date": "2026",
+          "description": "Converted sales sample data from a CSV file into a normalized relational database design using SQL.",
+          "bullets": [
+            "Analyzed CSV-based sales data and identified entities, attributes, primary keys, and foreign key relationships.",
+            "Designed normalized relational tables to reduce redundancy and improve data organization.",
+            "Documented normalization decisions across multiple normal forms and represented relationships between entities."
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "personal-projects",
+      "title": "Personal Projects",
+      "entries": [
+        {
+          "id": "personal-project-1",
+          "title": "Discord Dungeon Crawler Game",
+          "organization": "Personal Project",
+          "location": "Remote",
+          "date": "2025",
+          "description": "Developed a Discord-based dungeon crawler game prototype from scratch using Discord API interactions.",
+          "bullets": [
+            "Implemented player stats, monster stats, experience progression, gear, inventory, shop systems, and a final boss encounter.",
+            "Created randomly generated dungeon progression and encounter systems.",
+            "Used event-driven programming and Discord API interactions to handle player commands and game responses."
+          ],
+          "active": true
+        },
+        {
+          "id": "personal-project-2",
+          "title": "Discord Role Management Bot",
+          "organization": "Personal Project",
+          "location": "Remote",
+          "date": "2024",
+          "description": "Created a Discord bot for server-wide role assignment and automation using Discord API interactions.",
+          "bullets": [
+            "Built a bot that assigned and removed roles across a server of more than 200 members.",
+            "Practiced event-driven programming, permissions handling, role management, and server automation.",
+            "Used Discord API functionality to respond to commands and apply role changes across the server."
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "technical-skills",
+      "title": "Technical Skills",
+      "entries": [
+        {
+          "id": "technical-skills-1",
+          "title": "Software Development",
+          "organization": "Core Technical Area",
+          "location": "",
+          "date": "",
+          "description": "Experience designing, implementing, debugging, and organizing programs across academic and personal projects.",
+          "bullets": [
+            "Comfortable working with multi-file projects and breaking logic into separate components.",
+            "Experience building tools, visualizations, simulations, and browser-based applications."
+          ],
+          "active": true
+        },
+        {
+          "id": "technical-skills-2",
+          "title": "Web Development",
+          "organization": "Core Technical Area",
+          "location": "",
+          "date": "",
+          "description": "Experience with HTML, CSS, Bootstrap, JavaScript, and front-end program execution.",
+          "bullets": [
+            "Built responsive pages using Bootstrap components and custom CSS.",
+            "Implemented user input, output rendering, validation, and dynamic page updates."
+          ],
+          "active": true
+        },
+        {
+          "id": "technical-skills-3",
+          "title": "Data and Databases",
+          "organization": "Core Technical Area",
+          "location": "",
+          "date": "",
+          "description": "Experience with SQL, SQLite, relational modeling, normalization, and structured data processing.",
+          "bullets": [
+            "Designed relational schemas from semi-structured data.",
+            "Worked with JSON-style data, CSV datasets, and database normalization concepts."
+          ],
+          "active": true
+        },
+        {
+          "id": "technical-skills-4",
+          "title": "Graphics and Simulation",
+          "organization": "Core Technical Area",
+          "location": "",
+          "date": "",
+          "description": "Experience with C++ graphics programming, rasterization, SSAO, and simulation-oriented academic projects.",
+          "bullets": [
+            "Implemented graphics techniques from scratch in an academic setting.",
+            "Worked with visual demonstrations and technical analysis of rendering effects."
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "programming-languages",
+      "title": "Programming Languages",
+      "entries": [
+        {
+          "id": "programming-languages-1",
+          "title": "Primary Programming Experience",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Python and C++ are the programming languages used most extensively across coursework, research, and larger projects.",
+          "bullets": [
+            "Python: research implementation, data processing, scripting, and browser execution through PyScript.",
+            "C++: academic programming experience, including computer graphics and rasterization work."
+          ],
+          "active": true
+        },
+        {
+          "id": "programming-languages-2",
+          "title": "Additional Programming Experience",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Additional experience through coursework and focused class projects.",
+          "bullets": [
+            "Java: academic exposure through programming coursework.",
+            "JavaScript and TypeScript: front-end applications, DOM interaction, and object-oriented browser-based programming.",
+            "SQL: relational database design and querying.",
+            "Prolog and Elm: introductory experience through programming languages coursework."
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "tools-technologies",
+      "title": "Tools and Technologies",
+      "entries": [
+        {
+          "id": "tools-1",
+          "title": "Development Tools",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "VS Code, Git, GitHub, and command-line development workflows.",
+          "bullets": [
+            "Used version control and local development tools to organize class and personal programming projects."
+          ],
+          "active": true
+        },
+        {
+          "id": "tools-2",
+          "title": "Web and Browser Tools",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Bootstrap, PyScript, Tau Prolog, Elm compiler, TypeScript compiler, and browser developer tools.",
+          "bullets": [
+            "Used browser-compatible tools to run multiple programming languages from a static website."
+          ],
+          "active": true
+        },
+        {
+          "id": "tools-3",
+          "title": "Data and Research Tools",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "SQLite, Google Colab, NumPy, OpenCV, and Matplotlib.",
+          "bullets": [
+            "Used Python-based research and data tools to implement, test, and analyze image processing methods."
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "relevant-coursework",
+      "title": "Relevant Coursework",
+      "entries": [
+        {
+          "id": "coursework-1",
+          "title": "Computer Science Coursework",
+          "organization": "University of Puerto Rico at Mayagüez",
+          "location": "Mayagüez, PR",
+          "date": "",
+          "description": "Completed or in-progress coursework relevant to software development, systems, algorithms, and applied computing.",
+          "bullets": [
+            "Data Structures",
+            "Algorithms",
+            "Operating Systems",
+            "Database Systems",
+            "Computer Graphics",
+            "Software Engineering",
+            "Human-Computer Interaction",
+            "Programming Languages",
+            "Discrete Mathematics",
+            "Linear Algebra",
+            "Differential Equations"
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "title": "Languages",
+      "entries": [
+        {
+          "id": "language-1",
+          "title": "English",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Native / bilingual proficiency.",
+          "bullets": [],
+          "active": true
+        },
+        {
+          "id": "language-2",
+          "title": "Spanish",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Native / bilingual proficiency.",
+          "bullets": [],
+          "active": true
+        },
+        {
+          "id": "language-3",
+          "title": "Japanese",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Beginner self-study.",
+          "bullets": [],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "interests",
+      "title": "Interests",
+      "entries": [
+        {
+          "id": "interest-1",
+          "title": "Running and Fitness",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Interested in running, strength training, and performance tracking.",
+          "bullets": [],
+          "active": true
+        },
+        {
+          "id": "interest-2",
+          "title": "Outdoor Activities",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Enjoys hiking, cycling, and recreational stand-up paddleboarding.",
+          "bullets": [],
+          "active": true
+        },
+        {
+          "id": "interest-3",
+          "title": "Discord App Development",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Interested in building interactive Discord applications and game-like systems.",
+          "bullets": [],
+          "active": true
+        },
+        {
+          "id": "interest-4",
+          "title": "Language Learning",
+          "organization": "",
+          "location": "",
+          "date": "",
+          "description": "Currently learning Japanese through self-study.",
+          "bullets": [],
+          "active": true
+        }
+      ]
+    }
+  ]
+}
