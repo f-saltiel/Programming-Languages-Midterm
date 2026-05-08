@@ -1,7 +1,7 @@
 """
 scoring_data.py
 
-Data and helper functions for the Air Force PFA Score Estimator.
+Data and helper functions for the Air Force PFRA Score Estimator.
 
 This file supports:
 - 1-minute push-ups
@@ -167,9 +167,9 @@ def get_component_warnings(pushup_score, situp_score, run_score, wht_score):
     return warnings
 
 
-def calculate_pfa_score(gender, age_group, pushups, situps, run_time, waist, height):
+def calculate_pfra_score(gender, age_group, pushups, situps, run_time, waist, height):
     """
-    Calculates the total PFA score using:
+    Calculates the total PFRA score using:
     - gender
     - age group
     - push-up count

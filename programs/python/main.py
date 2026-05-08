@@ -1,7 +1,7 @@
 from pyscript import when # type: ignore
 from js import document # type: ignore
 
-from scoring_data import calculate_pfa_score
+from scoring_data import calculate_pfra_score
 
 
 def get_input_value(element_id):
@@ -108,7 +108,7 @@ def validate_run_time(run_time):
 
 @when("click", "#calculate-button")
 def handle_calculate(event):
-    form = document.getElementById("pfa-form")
+    form = document.getElementById("pfra-form")
 
     # Trigger browser validation for required fields and pattern checks
     if not form.reportValidity():
@@ -139,7 +139,7 @@ def handle_calculate(event):
 
         validate_run_time(run_time)
 
-        result = calculate_pfa_score(
+        result = calculate_pfra_score(
             gender,
             age_group,
             pushups,
@@ -155,4 +155,4 @@ def handle_calculate(event):
         display_error(str(error))
 
 
-print("PFA calculator loaded.")
+print("PFRA calculator loaded.")
